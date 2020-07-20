@@ -1,0 +1,26 @@
+## 部署
+CREATE TABLE IF NOT EXISTS `DEPT` (
+  `dept_id` varchar(2) NOT NULL PRIMARY KEY,
+  `dept_name` varchar(10) DEFAULT NULL
+);
+
+## 社員
+CREATE TABLE IF NOT EXISTS `EMPLOYEE` (
+  `emp_id` int(5) NOT NULL PRIMARY KEY,
+  `emp_name` varchar(20) DEFAULT NULL,
+  `age` int(3) DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `image_id` int(5) DEFAULT NULL,
+  `zipcode` varchar(10) DEFAULT NULL,
+  `prefecture` varchar(10) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `dept_id` int(2) DEFAULT NULL,
+  `date_entering` date DEFAULT NULL,
+  `date_retired` date DEFAULT NULL
+);
+
+## 写真
+CREATE TABLE IF NOT EXISTS `PICTURE` (
+  `pict_id` int(5) NOT NULL PRIMARY KEY,
+  `pict_image` BLOB NOT NULL
+);
