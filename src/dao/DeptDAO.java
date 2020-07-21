@@ -21,8 +21,9 @@ public class DeptDAO {
 		}
 		try (
 				Connection conn = DriverManager.getConnection(Constants.JDBC_URL, Constants.DB_USER, Constants.DB_PASS);
-				PreparedStatement pstmt = conn.prepareStatement("SELECT dept_id,dept_name,FROM dept ORDER BY dept_id");
-				ResultSet rs = pstmt.executeQuery();) {
+				PreparedStatement pstmt = conn.prepareStatement("SELECT dept_id,dept_name FROM dept ORDER BY dept_id");
+				ResultSet rs = pstmt.executeQuery();
+			) {
 			while (rs.next()) {
 				int dept_id = Integer.parseInt(rs.getString("dept_id"));
 				String dept_name = rs.getString("dept_name");
@@ -36,7 +37,7 @@ public class DeptDAO {
 		return deptList;
 	}
 
-	public boolean addDept(String deptID, String deptName) {
+	public boolean updateDept(String deptID, String deptName) {
 		try {
 			Class.forName(Constants.DRIVER_NAME);
 		} catch (ClassNotFoundException e) {
@@ -44,10 +45,10 @@ public class DeptDAO {
 		}
 		try (
 				Connection conn = DriverManager.getConnection(Constants.JDBC_URL, Constants.DB_USER, Constants.DB_PASS);
-				PreparedStatement pstmt = conn.prepareStatement("INSERT INTO DEPT (dept_id,dept_name) VALUES (?,?)");
-				) {
-			pstmt.setString(1, deptID);
-			pstmt.setString(2, deptName);
+				PreparedStatement pstmt = conn.prepareStatement("UPDATE DEPT SET DEPT_NAME = ? WHERE DEPT_ID = ?");
+			) {
+			pstmt.setString(1, deptName);
+			pstmt.setString(2, deptID);
 			int result = pstmt.executeUpdate();
 			if (result != 1) {
 				return false;
@@ -59,7 +60,7 @@ public class DeptDAO {
 		return true;
 	}
 
-	public boolean updateDept(String deptID, String deptName) {
+	public boolean addDept(String deptID, String deptName) {
 		try {
 			Class.forName(Constants.DRIVER_NAME);
 		} catch (ClassNotFoundException e) {
@@ -67,9 +68,10 @@ public class DeptDAO {
 		}
 		try (
 				Connection conn = DriverManager.getConnection(Constants.JDBC_URL, Constants.DB_USER, Constants.DB_PASS);
-				PreparedStatement pstmt = conn.prepareStatement("UPDATE DEPT SET DEPT_NAME = ? WHERE DEPT_ID = ?");) {
-			pstmt.setString(1, deptName);
-			pstmt.setString(2, deptID);
+				PreparedStatement pstmt = conn.prepareStatement("INSERT INTO DEPT (dept_id,dept_name) VALUES (?,?)");
+			) {
+			pstmt.setString(1, deptID);
+			pstmt.setString(2, deptName);
 			int result = pstmt.executeUpdate();
 			if (result != 1) {
 				return false;
@@ -89,7 +91,8 @@ public class DeptDAO {
 		}
 		try (
 				Connection conn = DriverManager.getConnection(Constants.JDBC_URL, Constants.DB_USER, Constants.DB_PASS);
-				PreparedStatement pstmt = conn.prepareStatement("DELETE FROM DEPT WHERE DEPT_ID IS ?");) {
+				PreparedStatement pstmt = conn.prepareStatement("DELETE FROM DEPT WHERE DEPT_ID IS ?");
+			) {
 			pstmt.setString(1, deptID);
 			int result = pstmt.executeUpdate();
 			if (result != 1) {

@@ -1,3 +1,4 @@
+
 package servlet;
 
 import java.io.IOException;
@@ -17,12 +18,14 @@ import action.CommonLogic;
 public class EmployeeDatabaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public EmployeeDatabaseServlet() {
+	public EmployeeDatabaseServlet() {
         super();
-    }
+	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+
 		String empID = request.getParameter("empID");
 		request.setAttribute("empID", empID);
 
@@ -31,7 +34,7 @@ public class EmployeeDatabaseServlet extends HttpServlet {
 		String next = "/WEB-INF/jsp/";
 		if (action == null) {
 			next = next + "emp_list.jsp";
-		} else if (action.equals("search")) {
+		} else {
 			if(action.equals("top")) {
 				next = "index.jsp";
 			} else if(action.equals("search")) {
@@ -54,7 +57,8 @@ public class EmployeeDatabaseServlet extends HttpServlet {
 		}
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 }
