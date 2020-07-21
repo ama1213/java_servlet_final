@@ -33,7 +33,7 @@ public class EmployeeDAO {
 				int empID = Integer.parseInt(rs.getString("emp_id"));
 				String empName = rs.getString("emp_name");
 				String ageSTR = rs.getString("age");
-					if (ageSTR.equals("")) {ageSTR = "0";}
+					if(ageSTR.equals("")) {ageSTR = "0";}
 					int age = Integer.parseInt(ageSTR);
 				String genderSTR = rs.getString("gender");
 					Gender gender = Gender.getByText(genderSTR);
@@ -46,11 +46,11 @@ public class EmployeeDAO {
 				String address = rs.getString("address");
 				String deptIDSTR = rs.getString("dept_ID");
 					if(deptIDSTR.equals("")) {deptIDSTR = "0";}
-					int deptID = Integer.parseInt("date_entering");
+					int deptID = Integer.parseInt(deptIDSTR);
 				String dateEntering = rs.getString("date_entering");
 				String dateRetired = rs.getString("date_retired");
-				Employee emp = new Employee(empID,empName,age,gender,
-						imageID,zipcode,pref,address,deptID,dateEntering,dateRetired);
+				Employee emp = new Employee(empID, empName, age, gender, imageID,
+						zipcode, pref, address, deptID, dateEntering, dateRetired);
 				empAllList.add(emp);
 			}
 		} catch (SQLException e) {
@@ -60,30 +60,30 @@ public class EmployeeDAO {
 		return empAllList;
 	}
 
-	public boolean updateEmp(List<String>empParams) {
+	public boolean updateEmp(List<String> empParams) {
 		try {
 			Class.forName(Constants.DRIVER_NAME);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		String sql = "UPDATE EMPLOYEE SET ("
-				+"emp_name,age,gender,image_id,zipcode,"
-				+"prefecture,address,dept_id,date_entering,date_retired"
+				+ "emp_name,age,gender,image_id,zipcode,"
+				+ "prefecture,address,dept_id,date_entering,date_retired"
 				+ ") = ("
 				+ "?,?,?,?,?,"
 				+ "?,?,?,?,?,"
-				+") WHERE EMP_iD = ?";
+				+ ") WHERE EMP_iD = ?";
 		try (
 				Connection conn = DriverManager.getConnection(Constants.JDBC_URL, Constants.DB_USER, Constants.DB_PASS);
 				PreparedStatement pstmt = conn.prepareStatement(sql);
-				) {
-				for(int i = 0; i < empParams.size(); i++) {
-					pstmt.setString(i + 1, empParams.get(i));
-				}
-				int result = pstmt.executeUpdate();
-				if (result != 1) {
-					return false;
-				}
+			) {
+			for(int i = 0; i < empParams.size(); i++) {
+				pstmt.setString(i + 1, empParams.get(i));
+			}
+			int result = pstmt.executeUpdate();
+			if (result != 1) {
+				return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -91,7 +91,7 @@ public class EmployeeDAO {
 		return true;
 	}
 
-	public boolean addEmp(List<String>empParams) {
+	public boolean addEmp(List<String> empParams) {
 		try {
 			Class.forName(Constants.DRIVER_NAME);
 		} catch (ClassNotFoundException e) {
@@ -106,9 +106,9 @@ public class EmployeeDAO {
 				+ "?,?,?,?,?,"
 				+ "?)";
 		try (
-				Connection conn = DriverManager.getConnection(Constants.JDBC_URL,Constants.DB_USER,Constants.DB_PASS);
+				Connection conn = DriverManager.getConnection(Constants.JDBC_URL, Constants.DB_USER, Constants.DB_PASS);
 				PreparedStatement pstmt = conn.prepareStatement(sql);
-				) {
+			) {
 			for(int i = 0; i < empParams.size(); i++) {
 				pstmt.setString(i + 1, empParams.get(i));
 			}
@@ -132,12 +132,12 @@ public class EmployeeDAO {
 		try (
 				Connection conn = DriverManager.getConnection(Constants.JDBC_URL, Constants.DB_USER, Constants.DB_PASS);
 				PreparedStatement pstmt = conn.prepareStatement("DELETE FROM EMPLOYEE WHERE EMP_ID IS ?");
-				) {
-				pstmt.setString(1, empID);
-				int result = pstmt.executeUpdate();
-				if (result != 1) {
-					return false;
-				}
+			) {
+			pstmt.setString(1, empID);
+			int result = pstmt.executeUpdate();
+			if (result != 1) {
+				return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
