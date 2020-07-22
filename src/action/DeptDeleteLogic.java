@@ -1,3 +1,4 @@
+  
 package action;
 
 import javax.servlet.http.HttpServletRequest;
@@ -6,16 +7,15 @@ import javax.servlet.http.HttpServletResponse;
 import dao.DeptDAO;
 
 public class DeptDeleteLogic implements CommonLogic {
-
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		String deptID = request.getParameter("deptID");
 		DeptDAO deptDao = new DeptDAO();
 		if (deptDao.deleteDept(deptID) == false) {
-			request.setAttribute("errorMessage", "ãƒ¬ã‚³ãƒ¼ãƒ‰ã®å‰Šé™¤ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
+			request.setAttribute("errorMessage", "ƒŒƒR[ƒh‚Ìíœ‚É¸”s‚µ‚Ü‚µ‚½B");
 			return "error.jsp";
 		}
-		request.setAttribute("message", "ãƒ¬ã‚³ãƒ¼ãƒ‰ã®å‰Šé™¤ã«æˆåŠŸã—ã¾ã—ãŸã€‚");
+		request.setAttribute("message", "ƒŒƒR[ƒh‚Ìíœ‚É¬Œ÷‚µ‚Ü‚µ‚½B");
 		return "success.jsp";
 	}
 }

@@ -91,7 +91,7 @@ public class DeptDAO {
 		}
 		try (
 				Connection conn = DriverManager.getConnection(Constants.JDBC_URL, Constants.DB_USER, Constants.DB_PASS);
-				PreparedStatement pstmt = conn.prepareStatement("DELETE FROM DEPT WHERE DEPT_ID IS ?");
+				PreparedStatement pstmt = conn.prepareStatement("DELETE FROM DEPT WHERE DEPT_ID = ?");
 			) {
 			pstmt.setString(1, deptID);
 			int result = pstmt.executeUpdate();

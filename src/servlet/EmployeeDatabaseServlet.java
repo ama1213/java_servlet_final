@@ -1,4 +1,3 @@
-
 package servlet;
 
 import java.io.IOException;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.CommonLogic;
 
-
 @WebServlet("/EmployeeDatabase")
 @MultipartConfig
 public class EmployeeDatabaseServlet extends HttpServlet {
@@ -22,6 +20,7 @@ public class EmployeeDatabaseServlet extends HttpServlet {
         super();
 	}
 
+	@SuppressWarnings("deprecation")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -59,6 +58,7 @@ public class EmployeeDatabaseServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// doGet()メソッドで実行
 		doGet(request, response);
 	}
 }
