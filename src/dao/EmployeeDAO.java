@@ -71,7 +71,7 @@ public class EmployeeDAO {
 				+ "prefecture,address,dept_id,date_entering,date_retired"
 				+ ") = ("
 				+ "?,?,?,?,?,"
-				+ "?,?,?,?,?,"
+				+ "?,?,?,?,?"
 				+ ") WHERE EMP_iD = ?";
 		try (
 				Connection conn = DriverManager.getConnection(Constants.JDBC_URL, Constants.DB_USER, Constants.DB_PASS);
@@ -131,7 +131,7 @@ public class EmployeeDAO {
 		}
 		try (
 				Connection conn = DriverManager.getConnection(Constants.JDBC_URL, Constants.DB_USER, Constants.DB_PASS);
-				PreparedStatement pstmt = conn.prepareStatement("DELETE FROM EMPLOYEE WHERE EMP_ID IS ?");
+				PreparedStatement pstmt = conn.prepareStatement("DELETE FROM EMPLOYEE WHERE EMP_ID = ?");
 			) {
 			pstmt.setString(1, empID);
 			int result = pstmt.executeUpdate();

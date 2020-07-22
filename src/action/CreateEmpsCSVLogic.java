@@ -12,17 +12,17 @@ import javax.servlet.http.HttpSession;
 import bean.Employee;
 
 public class CreateEmpsCSVLogic implements CommonLogic {
-
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unchecked")
 		List<Employee> empAllList = (List<Employee>) session.getAttribute("empAllList");
 		if (empAllList == null) {
-			request.setAttribute("message", "ç¤¾å“¡ã®ç™»éŒ²ãƒ‡ãƒ¼ã‚¿ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚");
+			request.setAttribute("message", "Ğˆõ‚Ì“o˜^ƒf[ƒ^‚ª‚ ‚è‚Ü‚¹‚ñB");
 		}
 
-		response.setContentType("text/csv;charset = UTF8");
+		response.setContentType("text/csv;charset=UTF8");
 		String fileName = null;
 		try {
 			fileName = new String("employeeList.csv".getBytes("Shift_JIS"), "ISO-8859-1");
@@ -30,24 +30,26 @@ public class CreateEmpsCSVLogic implements CommonLogic {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
+
 		try {
 			PrintWriter outputResult = response.getWriter();
 			outputResult.write(
-					"emp_id,emp_name,age,gender,image_id,zipcode,prefecture,address,dept_id,date_id,date_entering,date_retired");
+					"emp_id,emp_name,age,gender,image_id,zipcode,prefecture,address,dept_id,date_entering,date_retired");
 			outputResult.write(String.format("%n"));
 			for (Employee emp : empAllList) {
 				outputResult.write(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s%n",
-						emp.getEmpID(), emp.getEmpName(), emp.getAge(), emp.getGender().toString(),
-						emp.getPictID(),emp.getZipcode(), emp.getPref().getFullText(), emp.getAddress(),
-						emp.getDeptID(),emp.getDateEntering(), emp.getDateRetired()));
+						emp.getEmpID(), emp.getEmpName(), emp.getAge(), emp.getGender().toString(), emp.getPictID(),
+						emp.getZipcode(), emp.getPref().getFullText(), emp.getAddress(), emp.getDeptID(),
+						emp.getDateEntering(),
+						emp.getDateRetired()));
 			}
 			outputResult.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-			request.setAttribute("errorMessage", "CSVãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆã¯å¤±æ•—ã§ã™ã€‚");
+			request.setAttribute("errorMessage", "CSVƒtƒ@ƒCƒ‹‚Ìì¬‚É¸”s‚µ‚Ü‚µ‚½B");
 			return "error.jsp";
 		}
-		request.setAttribute("message", "ç¤¾å“¡ãƒªã‚¹ãƒˆã®CSVãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¾ã—ãŸã€‚");
+		request.setAttribute("message", "ĞˆõƒŠƒXƒg‚ÌCSVƒtƒ@ƒCƒ‹‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ü‚µ‚½B");
 		return "success.jsp";
 	}
 }

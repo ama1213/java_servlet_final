@@ -24,7 +24,7 @@
 		<p>郵便番号：<input type="text" name="zipcode" placeholder="000-0000"></p>
 		<p>都道府県：
 			<select name="prefecture">
-				<c:forEach var="pref" items="${ Prefecture.values() }">
+				<c:forEach var="pref" items="${ pref.values() }">
 					<option value="${ pref.fullText }">${ pref.fullText }</option>
 				</c:forEach>
 			</select>

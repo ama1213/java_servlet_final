@@ -23,10 +23,10 @@ public class ImageDAO {
 			e.printStackTrace();
 		}
 		try (
-				Connection conn = DriverManager.getConnection(Constants.JDBC_URL,Constants.DB_USER,Constants.DB_PASS);
+				Connection conn = DriverManager.getConnection(Constants.JDBC_URL, Constants.DB_USER, Constants.DB_PASS);
 				PreparedStatement pstmt = conn.prepareStatement("SELECT pict_id,pict_image FROM PICTURE ORDER BY pict_id");
 				ResultSet rs = pstmt.executeQuery();
-				) {
+			) {
 			while (rs.next()) {
 				int pict_id = rs.getInt("pict_id");
 				Blob blob = rs.getBlob("pict_image");
@@ -49,16 +49,15 @@ public class ImageDAO {
 			e.printStackTrace();
 		}
 		try (
-				Connection conn = DriverManager.getConnection(Constants.JDBC_URL,Constants.DB_USER,Constants.DB_PASS);
+				Connection conn = DriverManager.getConnection(Constants.JDBC_URL, Constants.DB_USER, Constants.DB_PASS);
 				PreparedStatement pstmt = conn.prepareStatement("UPDATE PICTURE SET pict_image = ? WHERE pict_id = ?");
-				) {
+			) {
 			pstmt.setBlob(1, is);
 			pstmt.setInt(2, pictID);
 			int result = pstmt.executeUpdate();
 			if (result != 1) {
 				return false;
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -72,9 +71,11 @@ public class ImageDAO {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+
 		try (
-				Connection conn = DriverManager.getConnection(Constants.JDBC_URL,Constants.DB_USER,Constants.DB_PASS);
-				PreparedStatement pstmt = conn.prepareStatement("INSERT INTO PICTURE (pict_id,pict_image) VALUES (?,?)");) {
+				Connection conn = DriverManager.getConnection(Constants.JDBC_URL, Constants.DB_USER, Constants.DB_PASS);
+				PreparedStatement pstmt = conn
+						.prepareStatement("INSERT INTO PICTURE (pict_id,pict_image) VALUES (?,?)");) {
 			pstmt.setInt(1, pictID);
 			pstmt.setBlob(2, is);
 			int result = pstmt.executeUpdate();
@@ -95,8 +96,8 @@ public class ImageDAO {
 			e.printStackTrace();
 		}
 		try (
-				Connection conn = DriverManager.getConnection(Constants.JDBC_URL,Constants.DB_USER,Constants.DB_PASS);
-				PreparedStatement pstmt = conn.prepareStatement("DELETE FROM PICTURE WHERE pict_id IS ?");) {
+				Connection conn = DriverManager.getConnection(Constants.JDBC_URL, Constants.DB_USER, Constants.DB_PASS);
+				PreparedStatement pstmt = conn.prepareStatement("DELETE FROM PICTURE WHERE pict_id = ?");) {
 			pstmt.setInt(1, pictID);
 			int result = pstmt.executeUpdate();
 			if (result != 1) {

@@ -1,86 +1,83 @@
 package bean;
 
 public enum Prefecture {
-	UNKNOWN(0, ""),
-	HOKKAIDO(1, "åŒ—æµ·é“"),
-	AOMORI(2, "é’æ£®"),
-	IWATE(3, "å²©æ‰‹"),
-	MIYAGI(4, "å®®åŸŽ"),
-	AKITA(5, "ç§‹ç”°"),
-	YAMAGATA(6, "å±±å½¢"),
-	FUKUSHIMA(7, "ç¦å³¶"),
-	IBARAKI(8, "èŒ¨åŸŽ"),
-	TOCHIGI(9, "æ ƒæœ¨"),
-	GUNMA(10, "ç¾¤é¦¬"),
-	SAITAMA(11, "åŸ¼çŽ‰"),
-	CHIBA(12, "åƒè‘‰"),
-	TOKYO(13, "æ±äº¬"),
-	KANAGAWA(14, "ç¥žå¥ˆå·"),
-	NIIGATA(15, "æ–°æ½Ÿ"),
-	TOYAMA(16, "å¯Œå±±"),
-	ISHIKAWA(17, "çŸ³å·"),
-	FUKUI(18, "ç¦äº•"),
-	YAMANASHI(19, "å±±æ¢¨"),
-	NAGANO(20, "é•·é‡Ž"),
-	GIFU(21, "å²é˜œ"),
-	SHIZUOKA(22, "é™å²¡"),
-	AICHI(23, "æ„›çŸ¥"),
-	MIE(24, "ä¸‰é‡"),
-	SHIGA(25, "æ»‹è³€"),
-	KYOTO(26, "äº¬éƒ½"),
-	OSAKA(27, "å¤§é˜ª"),
-	HYOGO	(28, "å…µåº«"),
-	NARA(29, "å¥ˆè‰¯"),
-	WAKAYAMA(30, "å’Œæ­Œå±±"),
-	TOTTORI(31, "é³¥å–"),
-	SHIMANE(32,"å³¶æ ¹"),
-	OKAYAMA	(33, "å²¡å±±"),
-	HIROSHIMA(34, "åºƒå³¶"),
-	YAMAGUCHI(35, "å±±å£"),
-	TOKUSHIMA(36, "å¾³å³¶"),
-	KAGAWA(37, "é¦™å·"),
-	EHIME(38, "æ„›åª›"),
-	KOCHI(39, "é«˜çŸ¥"),
-	FUKUOKA(40, "ç¦å²¡"),
-	SAGA(41,"ä½è³€"),
-	NAGASAKI(42, "é•·å´Ž"),
-	KUMAMOTO(43, "ç†Šæœ¬"),
-	OITA(44, "å¤§åˆ†"),
-	MIYAZAKI(45, "å®®å´Ž"),
-	KAGOSHIMA(46, "é¹¿å…å³¶"),
-	OKINAWA(47, "æ²–ç¸„");
+	UNKNOWN	(0, ""),
+	HOKKAIDO(1, "–kŠC“¹"),
+	AOMORI	(2, "ÂX"),
+	IWATE	(3, "ŠâŽè"),
+	MIYAGI	(4, "‹{é"),
+	AKITA	(5, "H“c"),
+	YAMAGATA(6, "ŽRŒ`"),
+	FUKUSHIMA(7, "•Ÿ“‡"),
+	IBARAKI	(8, "ˆïé"),
+	TOCHIGI	(9, "“È–Ø"),
+	GUNMA	(10, "ŒQ”n"),
+	SAITAMA	(11, "é‹Ê"),
+	CHIBA	(12, "ç—t"),
+	TOKYO	(13, "“Œ‹ž"),
+	KANAGAWA(14, "_“Þì"),
+	NIIGATA	(15, "VŠƒ"),
+	TOYAMA	(16, "•xŽR"),
+	ISHIKAWA(17, "Îì"),
+	FUKUI	(18, "•Ÿˆä"),
+	YAMANASHI(19, "ŽR—œ"),
+	NAGANO	(20, "’·–ì"),
+	GIFU	(21, "Šò•Œ"),
+	SHIZUOKA(22, "Ã‰ª"),
+	AICHI	(23, "ˆ¤’m"),
+	MIE		(24, "ŽOd"),
+	SHIGA	(25, "Ž ‰ê"),
+	KYOTO	(26, "‹ž“s"),
+	OSAKA	(27, "‘åã"),
+	HYOGO	(28, "•ºŒÉ"),
+	NARA	(29, "“Þ—Ç"),
+	WAKAYAMA(30, "˜a‰ÌŽR"),
+	TOTTORI	(31, "’¹Žæ"),
+	SHIMANE	(32,"“‡ª"),
+	OKAYAMA	(33, "‰ªŽR"),
+	HIROSHIMA(34, "L“‡"),
+	YAMAGUCHI(35, "ŽRŒû"),
+	TOKUSHIMA(36, "“¿“‡"),
+	KAGAWA	(37, "ì"),
+	EHIME	(38, "ˆ¤•Q"),
+	KOCHI	(39, "‚’m"),
+	FUKUOKA	(40, "•Ÿ‰ª"),
+	SAGA	(41,"²‰ê"),
+	NAGASAKI(42, "’·è"),
+	KUMAMOTO(43, "ŒF–{"),
+	OITA	(44, "‘å•ª"),
+	MIYAZAKI(45, "‹{è"),
+	KAGOSHIMA(46, "Ž­Ž™“‡"),
+	OKINAWA	(47, "‰«“ê");
 
-	/**
-	 * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
-	 */
 	private final int code;
 	private final String text;
 
-	/**
-	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
-	 */
 	private Prefecture(int code, String text) {
 		this.code = code;
 		this.text = text;
 	}
 
-	/**
-	 * getterãƒ¡ã‚½ãƒƒãƒ‰
-	 */
-	public int getCode() {return code;}
-	public String getText() {return text;}
+	public int getCode() {
+		return code;
+	}
+
+	public String getText() {
+		return text;
+	}
+
 	public String getFullText() {
 		switch (this) {
 		case UNKNOWN:
 		case HOKKAIDO:
 			return getText();
 		case TOKYO:
-			return getText() + "éƒ½";
+			return getText() + "“s";
 		case KYOTO:
 		case OSAKA:
-			return getText() + "åºœ";
+			return getText() + "•{";
 		default:
-			return getText() + "çœŒ";
+			return getText() + "Œ§";
 		}
 	}
 
