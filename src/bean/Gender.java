@@ -2,21 +2,21 @@ package bean;
 
 public enum Gender {
 	UNKNOWN(""),
-	FEMALE("螂ｳ"),
-	MALE("逕ｷ");
+	FEMALE("女"),
+	MALE("男");
 
 	/**
-	 * 繝輔ぅ繝ｼ繝ｫ繝牙ｮ夂ｾｩ
+	 * フィールド
 	 */
 	private String text;
 
 	/**
-	 * 繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ
+	 * コンストラクタ
 	 */
 	private Gender(String text) {this.text = text;}
 
 	/**
-	 * getter繝｡繧ｽ繝�繝�
+	 * getter/setter
 	 */
 	public String getText() {return text;}
 	public String toString() {return this.text;}
