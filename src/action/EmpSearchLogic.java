@@ -16,7 +16,7 @@ public class EmpSearchLogic implements CommonLogic {
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unchecked")
 		List<Employee> empAllList = (List<Employee>) session.getAttribute("empAllList");
-		final String notext = "æŒ‡å®šãªã—";
+		final String notext = "w’è–³‚µ";
 		int searchDeptID = Integer.parseInt(request.getParameter("searchDeptID"));
 		String searchEmpID = request.getParameter("searchEmpID");
 		if (searchEmpID.equals("")) {

@@ -12,15 +12,15 @@ public class DeptUpdateLogic implements CommonLogic {
 		String deptID = request.getParameter("deptID");
 		String deptName = request.getParameter("deptName");
 		if (deptName.equals("")) {
-			request.setAttribute("errorMessage", "éƒ¨ç½²åã¯ç©ºã§ç™»éŒ²ã§ãã¾ã›ã‚“ã€‚");
+			request.setAttribute("errorMessage", "•”–¼‚Í‹ó‚Å“o˜^‚Å‚«‚Ü‚¹‚ñ");
 			return "error.jsp";
 		}
 		DeptDAO deptDao = new DeptDAO();
 		if (deptDao.updateDept(deptID, deptName) == false) {
-			request.setAttribute("errorMessage", "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç™»éŒ²ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
+			request.setAttribute("errorMessage", "ƒf[ƒ^ƒx[ƒX‚Ö‚Ì“o˜^‚É¸”s‚µ‚Ü‚µ‚½");
 			return "error.jsp";
 		}
-		request.setAttribute("message", "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç™»éŒ²ã«æˆåŠŸã—ã¾ã—ãŸã€‚");
+		request.setAttribute("message", "ƒf[ƒ^ƒx[ƒX‚Ö‚Ì“o˜^‚É¬Œ÷‚µ‚Ü‚µ‚½");
 		return "success.jsp";
 	}
 }

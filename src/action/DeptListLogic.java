@@ -18,7 +18,7 @@ public class DeptListLogic implements CommonLogic {
 		List<Dept> deptAllList = deptDao.findAllDept();
 		session.setAttribute("deptAllList", deptAllList);
 		if (deptAllList == null) {
-			request.setAttribute("message", "éƒ¨ç½²ç™»éŒ²ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Šã¾ã›ã‚“ã€‚");
+			request.setAttribute("message", "•”‚Ì“o˜^ƒf[ƒ^‚ª‚ ‚è‚Ü‚¹‚ñ");
 		}
 		return "dept_list.jsp";
 	}

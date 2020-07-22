@@ -22,19 +22,19 @@ public class EmpListLogic implements CommonLogic {
 		List<Employee>empAllList = empDAO.findAllEmp();
 		session.setAttribute("empAllList", empAllList);
 		if (empAllList == null) {
-			request.setAttribute("message", "ç¤¾å“¡ã®ç™»éŒ²ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Šã¾ã›ã‚“ã€‚");
+			request.setAttribute("message", "Ğˆõ‚Ì“o˜^ƒf[ƒ^‚ª‚ ‚è‚Ü‚¹‚ñ");
 		}
 		DeptDAO deptDAO = new DeptDAO();
 		List<Dept> deptAllList = deptDAO.findAllDept();
 		session.setAttribute("deptAllList", deptAllList);
 		if (deptAllList == null) {
-			request.setAttribute("message", "éƒ¨ç½²ã®ç™»éŒ²ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Šã¾ã›ã‚“ã€‚");
+			request.setAttribute("message", "•”‚Ì“o˜^ƒf[ƒ^‚ª‚ ‚è‚Ü‚¹‚ñ");
 		}
 		ImageDAO imageDAO = new ImageDAO();
 		List<Picture> imageAllList = imageDAO.findAllImage();
 		session.setAttribute("imageAllList", imageAllList);
 		if (imageAllList == null) {
-			request.setAttribute("message", "ç”»åƒã®ç™»éŒ²ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Šã¾ã›ã‚“ã€‚");
+			request.setAttribute("message", "‰æ‘œ‚Ì“o˜^ƒf[ƒ^‚ª‚ ‚è‚Ü‚¹‚ñ");
 		}
 		return "emp_list.jsp";
 	}

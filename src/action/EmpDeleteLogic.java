@@ -24,15 +24,15 @@ public class EmpDeleteLogic implements CommonLogic {
 			int pictID = Integer.parseInt(empID);
 			if (isImageContain(imageAllList, pictID)) {
 				if (imageDao.deleteImage(pictID) == false) {
-					request.setAttribute("errorMessage", "ãƒ¬ã‚³ãƒ¼ãƒ‰å‰Šé™¤ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
+					request.setAttribute("errorMessage", "ƒŒƒR[ƒh‚Ìíœ‚É¸”s‚µ‚Ü‚µ‚½");
 					return "error.jsp";
 				}
 			}
 		} else if (empDao.deleteEmp(empID) == false) {
-			request.setAttribute("errorMessage", "ãƒ¬ã‚³ãƒ¼ãƒ‰å‰Šé™¤ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
+			request.setAttribute("errorMessage", "ƒŒƒR[ƒh‚Ìíœ‚É¸”s‚µ‚Ü‚µ‚½");
 			return "error.jsp";
 		}
-		request.setAttribute("message", "ãƒ¬ã‚³ãƒ¼ãƒ‰ã®å‰Šé™¤ã«æˆåŠŸã—ã¾ã—ãŸã€‚");
+		request.setAttribute("message", "ƒŒƒR[ƒh‚Ìíœ‚É¬Œ÷‚µ‚Ü‚µ‚½");
 		return "success.jsp";
 	}
 	boolean isImageContain(List<Picture> imageAllList, int pictID) {

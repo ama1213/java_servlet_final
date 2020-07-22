@@ -22,32 +22,32 @@ public class EmpUpdateLogic implements CommonLogic {
 		boolean empIDisNull = request.getParameter("empID").equals("");
 		boolean empNameisNull = request.getParameter("empName").equals("");
 		if(empIDisNull || empNameisNull) {
-			request.setAttribute("errorMessage", "IDã¨åå‰ã¯å¿…é ˆã§ã™ã€‚");
+			request.setAttribute("errorMessage", "ID‚Æ–¼‘O‚Í•K{‚Å‚·");
 			return "error.jsp";
 		}
 		String empIDstr = request.getParameter("empID");
 		if (!empIDstr.matches("[0-9]{1,5}")) {
-			request.setAttribute("errorMessage", "ç¤¾å“¡IDã¯1~5æ¡ã®æ•°å­—ã§å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
+			request.setAttribute("errorMessage", "ĞˆõID‚Í‚P~‚TŒ…‚Ì”š‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
 			return "error.jsp";
 		}
 		String age = request.getParameter("age");
 		if (!(age.matches("^[0-9]{1,3}") || age.equals(""))) {
-			request.setAttribute("errorMessage", "å¹´é½¢ã¯1~2æ¡ã®æ•°å­—ã§å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
+			request.setAttribute("errorMessage", "”N—î‚Í‚P~‚QŒ…‚Ì”š‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
 			return "error.jsp";
 		}
 		String zipcode = request.getParameter("zipcode");
 		if (!(zipcode.matches("^[0-9]{3}-[0-9]{4}$") || zipcode.equals(""))) {
-			request.setAttribute("errorMessage", "éƒµä¾¿ç•ªå·ã¯ãƒã‚¤ãƒ•ãƒ³ã‚ã‚Šã®ï¼—æ¡ã®éƒµä¾¿ç•ªå·ã§å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
+			request.setAttribute("errorMessage", "—X•Ö”Ô†‚ÍƒnƒCƒtƒ“‚ ‚è‚Ì‚VŒ…‚Ì—X•Ö”Ô†‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
 			return "error.jsp";
 		}
 		String dateEntering = request.getParameter("dateRerired");
 		if (!(dateEntering.matches("^[0-9]{4}-[0-9]{2}-[0-9]{2}$") || dateEntering.equals(""))) {
-			request.setAttribute("errorMessage", "å…¥ç¤¾æ—¥ã¯ãƒã‚¤ãƒ•ãƒ³ã§åŒºåˆ‡ã£ãŸå¹´æœˆæ—¥ã§å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
+			request.setAttribute("errorMessage", "“üĞ“ú‚ÍƒnƒCƒtƒ“‚Å‹æØ‚Á‚½”NŒ“ú‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
 			return "error.jsp";
 		}
 		String dateRetired = request.getParameter("dateEntering");
 		if (!(dateEntering.matches("^[0-9]{4}-[0-9]{2}-[0-9]{2}$") || dateEntering.equals(""))) {
-			request.setAttribute("errorMessage", "é€€ç¤¾æ—¥ã¯ãƒã‚¤ãƒ•ãƒ³ã§åŒºåˆ‡ã£ãŸå¹´æœˆæ—¥ã§å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
+			request.setAttribute("errorMessage", "‘ŞĞ“ú‚ÍƒnƒCƒtƒ“‚Å‹æØ‚Á‚½”NŒ“ú‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
 			return "error.jsp";
 		}
 		int pictID = Integer.parseInt(empIDstr);
@@ -65,7 +65,7 @@ public class EmpUpdateLogic implements CommonLogic {
 		empParams.add(empIDstr);
 		EmployeeDAO empDao = new EmployeeDAO();
 		if (empDao.updateEmp(empParams) == false) {
-			request.setAttribute("errorMessage", "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç™»éŒ²ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
+			request.setAttribute("errorMessage", "ƒf[ƒ^ƒx[ƒX‚Ö‚Ì“o˜^‚É¸”s‚µ‚Ü‚µ‚½");
 			return "error.jsp";
 		}
 		Part pict = null;
@@ -91,17 +91,17 @@ public class EmpUpdateLogic implements CommonLogic {
 			ImageDAO imageDAO = new ImageDAO();
 			if(pictureSTR == null) {
 				if (imageDAO.addImage(pictID, is) == false) {
-					request.setAttribute("errorMessage", "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç™»éŒ²ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
+					request.setAttribute("errorMessage", "ƒf[ƒ^ƒx[ƒX‚Ö‚Ì“o˜^‚É¸”s‚µ‚Ü‚µ‚½@¦‰æ‘œƒf[ƒ^");
 					return "error.jsp";
 				}
 			} else {
 				if (imageDAO.updateImage(pictID, is) == false) {
-					request.setAttribute("errorMessage", "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç™»éŒ²ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
+					request.setAttribute("errorMessage", "ƒf[ƒ^ƒx[ƒX‚Ö‚Ì“o˜^‚É¸”s‚µ‚Ü‚µ‚½@¦‰æ‘œƒf[ƒ^");
 					return "error.jsp";
 				}
 			}
 		}
-		request.setAttribute("message", "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç™»éŒ²ã«æˆåŠŸã—ã¾ã—ãŸã€‚");
+		request.setAttribute("message", "ƒf[ƒ^ƒx[ƒX‚Ö‚Ì“o˜^‚É¬Œ÷‚µ‚Ü‚µ‚½");
 		return "success.jsp";
 	}
 }
