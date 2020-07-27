@@ -25,7 +25,7 @@
 		<p>都道府県：
 			<select name="prefecture">
 				<c:forEach var="pref" items="${ Prefecture.values() }">
-					<option value="${ pref.fullText }">${ pref.fullText }</option>
+					<option value="${ pref.text }">${ pref.text }</option>
 				</c:forEach>
 			</select>
 		</p>

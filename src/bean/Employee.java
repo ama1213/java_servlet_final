@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Employee implements Serializable {
 	/**
-	 * 繝輔ぅ繝ｼ繝ｫ繝牙ｮ夂ｾｩ
+	 * フィールド
 	 */
 	private static final long serialVersionUID = 1L;
 	private int empID;
@@ -20,7 +20,7 @@ public class Employee implements Serializable {
 	private String dateRetired;
 
 	/**
-	 * 繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ
+	 * コンストラクタ
 	 */
 	public Employee() {}
 
@@ -42,7 +42,7 @@ public class Employee implements Serializable {
 	}
 
 	/**
-	 * getter/setter繝｡繧ｽ繝�繝�
+	 * getter/setter
 	 */
 	public int getEmpID() {return empID;}
 	public void setEmpID(int empID) {this.empID = empID;}

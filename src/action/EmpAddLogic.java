@@ -49,7 +49,7 @@ public class EmpAddLogic implements CommonLogic {
 			request.setAttribute("errorMessage", "退社日はハイフンで区切った年月日で入力してください");
 			return "error.jsp";
 		}
-		int pictID = Integer.parseInt(empIDstr); //逕ｻ蜒終D縺ｨ遉ｾ蜩｡ID繧貞酔縺倥→縺吶ｋ
+		int pictID = Integer.parseInt(empIDstr);
 		List<String> empParams = new ArrayList<String>();
 		empParams.add(empIDstr);
 		empParams.add(request.getParameter("empName"));
