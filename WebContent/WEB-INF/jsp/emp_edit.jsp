@@ -23,7 +23,7 @@
 			<input type="radio" name="gender" value="${ Gender.MALE.text }" <c:if test="${ empEdited.gender == 'MALE' }">checked</c:if>>男性
 			<input type="radio" name="gender" value="${ Gender.FEMALE.text }" <c:if test="${ empEdited.gender == 'FEMALE' }">checked</c:if>>女性
 		</p>
-		<p>写真：<input type="file" name="picture"></p>
+		<p>写真：<input type="file" name="picture" accept="image/png,image/jpeg"></p>
 		<input type="hidden" name="pictID" value="${ empEdited.pictID }">
 		<input type="hidden" name="pictureSTR" value="${ pictureSTR }">
 		<c:if test="${ not empty pictureSTR }">
