@@ -19,7 +19,7 @@ public class CreateEmpsCSVLogic implements CommonLogic {
 		@SuppressWarnings("unchecked")
 		List<Employee> empAllList = (List<Employee>) session.getAttribute("empAllList");
 		if (empAllList == null) {
-			request.setAttribute("message", "Ğˆõ‚Ì“o˜^ƒf[ƒ^‚ª‚ ‚è‚Ü‚¹‚ñB");
+			request.setAttribute("message", "ç¤¾å“¡ã®ç™»éŒ²ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Šã¾ã›ã‚“ã€‚");
 		}
 
 		response.setContentType("text/csv;charset=UTF8");
@@ -46,10 +46,10 @@ public class CreateEmpsCSVLogic implements CommonLogic {
 			outputResult.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-			request.setAttribute("errorMessage", "CSVƒtƒ@ƒCƒ‹‚Ìì¬‚É¸”s‚µ‚Ü‚µ‚½B");
+			request.setAttribute("errorMessage", "CSVãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
 			return "error.jsp";
 		}
-		request.setAttribute("message", "ĞˆõƒŠƒXƒg‚ÌCSVƒtƒ@ƒCƒ‹‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ü‚µ‚½B");
+		request.setAttribute("message", "ç¤¾å“¡ãƒªã‚¹ãƒˆã®CSVãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¾ã—ãŸã€‚");
 		return "success.jsp";
 	}
 }

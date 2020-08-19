@@ -2,16 +2,16 @@ package bean;
 
 public enum Gender {
 	UNKNOWN(""),
-	FEMALE("—"),
-	MALE("’j");
+	FEMALE("å¥³"),
+	MALE("ç”·");
 
 	/**
-	 * ƒtƒB[ƒ‹ƒh
+	 * ï¿½tï¿½Bï¿½[ï¿½ï¿½ï¿½h
 	 */
 	private String text;
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 	 */
 	private Gender(String text) {this.text = text;}
 

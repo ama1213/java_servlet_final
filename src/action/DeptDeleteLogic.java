@@ -1,4 +1,4 @@
-  
+
 package action;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,10 +12,10 @@ public class DeptDeleteLogic implements CommonLogic {
 		String deptID = request.getParameter("deptID");
 		DeptDAO deptDao = new DeptDAO();
 		if (deptDao.deleteDept(deptID) == false) {
-			request.setAttribute("errorMessage", "ƒŒƒR[ƒh‚Ìíœ‚É¸”s‚µ‚Ü‚µ‚½B");
+			request.setAttribute("errorMessage", "ãƒ¬ã‚³ãƒ¼ãƒ‰ã®å‰Šé™¤ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
 			return "error.jsp";
 		}
-		request.setAttribute("message", "ƒŒƒR[ƒh‚Ìíœ‚É¬Œ÷‚µ‚Ü‚µ‚½B");
+		request.setAttribute("message", "ãƒ¬ã‚³ãƒ¼ãƒ‰ã®å‰Šé™¤ã«æˆåŠŸã—ã¾ã—ãŸã€‚");
 		return "success.jsp";
 	}
 }

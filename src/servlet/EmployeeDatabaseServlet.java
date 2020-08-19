@@ -58,7 +58,6 @@ public class EmployeeDatabaseServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// doGet()メソッドで実行
 		doGet(request, response);
 	}
 }

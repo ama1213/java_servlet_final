@@ -11,20 +11,20 @@ public class DeptAddLogic implements CommonLogic {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		String deptID = request.getParameter("deptID");
 		if (!deptID.matches("[1-9]|[1-9][0-9]")) {
-			request.setAttribute("errorMessage", "•”ID‚Í1~99‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+			request.setAttribute("errorMessage", "éƒ¨ç½²IDã¯1~99ã§å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
 			return "error.jsp";
 		}
 		String deptName = request.getParameter("deptName");
 		if (deptName.equals("")) {
-			request.setAttribute("errorMessage", "•”–¼‚Í‹ó‚Å“o˜^‚Å‚«‚Ü‚¹‚ñ");
+			request.setAttribute("errorMessage", "éƒ¨ç½²åã¯ç©ºã§ç™»éŒ²ã§ãã¾ã›ã‚“ã€‚");
 			return "error.jsp";
 		}
 		DeptDAO deptDao = new DeptDAO();
 		if (deptDao.addDept(deptID, deptName) == false) {
-			request.setAttribute("errorMessage", "ƒf[ƒ^ƒx[ƒX‚Ö‚Ì“o˜^‚É¸”s‚µ‚Ü‚µ‚½");
+			request.setAttribute("errorMessage", "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã¸ã®ç™»éŒ²ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
 			return "error.jsp";
 		}
-		request.setAttribute("message", "ƒf[ƒ^ƒx[ƒX‚Ö‚Ì“o˜^‚É¬Œ÷‚µ‚Ü‚µ‚½");
+		request.setAttribute("message", "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã¸ã®ç™»éŒ²ã«æˆåŠŸã—ã¾ã—ãŸã€‚");
 		return "success.jsp";
 	}
 }

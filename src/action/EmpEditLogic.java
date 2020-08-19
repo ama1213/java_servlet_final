@@ -10,7 +10,6 @@ import bean.Employee;
 import bean.Picture;
 
 public class EmpEditLogic implements CommonLogic {
-
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
@@ -22,12 +21,12 @@ public class EmpEditLogic implements CommonLogic {
 			if(emp.getEmpID() == empID) {
 				request.setAttribute("empEdited", emp);
 				int pictID = emp.getPictID();
-				if (pictID != 0) {
+				if(pictID != 0) {
 					@SuppressWarnings("unchecked")
 					List<Picture> imageAllList = (List<Picture>) session.getAttribute("imageAllList");
 					Picture picture = null;
 					for(Picture tmp : imageAllList) {
-						if(tmp.getPictID()== pictID) {
+						if(tmp.getPictID() == pictID) {
 							picture = tmp;
 							pictureSTR = picture.getPictImage();
 							break;
